@@ -9,6 +9,7 @@
   w    Warn  
   e    Error  
 --]]
+
 local function newlog(logbasename)
 	local loglevel = {["e"]="error", ["w"]="warn", ["i"]="info", ["d"]="debug"}
 	local createtime = os.date("%Y%m%d_%H%M%S", os.time())
@@ -24,7 +25,7 @@ local function newlog(logbasename)
 		local l   = loglevel[level] or loglevel.i
 		local rt  = tostring(os.date("%H:%M:%S", os.time()))
 		local out = string.format("\n<<<[%s-%s]\n%s\n>>>[%s-%s]\n", l, rt, msg, l, rt)
-		if g_isDebug then print(out) end
+		-- if g_IsDebug then print(out) end
 		if nil    == f then
 			print("logfile: "..logfname.." is close")
 			return nil
